@@ -1,21 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import SignInScreen from "./screens/SignInScreen";
+import SignUpScreen from "./screens/SignUpScreen";
+import SensoresScreen from "./screens/SensoresScreen";
+import DataScreen from "./screens/DataScreen";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+const AuthTab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default () => (
+  <NavigationContainer>
+    <Drawer.Navigator>
+      <Drawer.Screen name="Sensores" component={SensoresScreen} />
+      <Drawer.Screen name="Estatísticas" component={DataScreen} />
+    </Drawer.Navigator>
+  </NavigationContainer>
+
+  /*<NavigationContainer>
+    <AuthTab.Navigator>
+      <AuthTab.Screen name="SignIn" component={SignInScreen} />
+      <AuthTab.Screen name="SignUp" component={SignUpScreen} />
+    </AuthTab.Navigator>
+  </NavigationContainer>*/
+);
