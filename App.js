@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -22,12 +22,22 @@ firebase.initializeApp(firebaseConfig);
 const AuthTab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
+const onAuthStateChange = (callback) => {
+  return firebase.auth().onAuthStateChanged((user) => {
+    callback({ loggedIn: user });
+  });
+};
 export default () => {
-  const [userToken, setUserToken] = React.useState();
-
+  const [user, setUser] = React.useState({ loggedIn: false });
+  useEffect(() => {
+    const cavalcanteGay = onAuthStateChange(setUser);
+    return () => {
+      cavalcanteGay();
+    };
+  });
   return (
     <NavigationContainer>
-      {userToken ? (
+      {user.loggedIn ? (
         <Drawer.Navigator>
           <Drawer.Screen name="Sensores" component={SensoresScreen} />
           <Drawer.Screen name="Estatísticas" component={DataScreen} />

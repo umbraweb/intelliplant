@@ -24,9 +24,6 @@ const SignInScreen = (props) => {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        console.log("opaa");
-      })
       .catch((error) => {
         setError(error.message);
       });
@@ -34,11 +31,11 @@ const SignInScreen = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.errorMessage}>
-        {error && <Text style={styles.error}>{error}</Text>}
+        {error && email != "" && <Text style={styles.error}>{error}</Text>}
       </View>
       <TextInput
         style={styles.inputBox}
-        placeholder="Usuario"
+        placeholder="Email"
         onChangeText={emailHandler}
         value={email}
       />
