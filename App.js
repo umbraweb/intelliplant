@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+} from "@react-navigation/drawer";
 import SignInScreen from "./screens/SignInScreen";
 import SignUpScreen from "./screens/SignUpScreen";
 import SensoresScreen from "./screens/SensoresScreen";
@@ -27,6 +30,9 @@ const onAuthStateChange = (callback) => {
     callback({ loggedIn: user });
   });
 };
+
+import { Sidebar } from "./components/Sidebar";
+
 export default () => {
   const [user, setUser] = React.useState({ loggedIn: false });
   useEffect(() => {
@@ -38,7 +44,7 @@ export default () => {
   return (
     <NavigationContainer>
       {user.loggedIn ? (
-        <Drawer.Navigator>
+        <Drawer.Navigator drawerContent={(props) => <Sidebar {...props} />}>
           <Drawer.Screen name="Sensores" component={SensoresScreen} />
           <Drawer.Screen name="Estatísticas" component={DataScreen} />
         </Drawer.Navigator>
