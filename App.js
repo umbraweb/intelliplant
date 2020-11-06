@@ -58,8 +58,12 @@ export default () => {
           <Drawer.Screen name="Estatísticas" component={DataScreen} />
         </Drawer.Navigator>
       ) : (
-        <AuthTab.Navigator style = {styles.box}>
-          <AuthTab.Screen name="SignIn" style = {styles.name} component={SignInScreen} />
+        <AuthTab.Navigator style={styles.box}>
+          <AuthTab.Screen
+            name="SignIn"
+            style={styles.name}
+            component={SignInScreen}
+          />
           <AuthTab.Screen name="SignUp" component={SignUpScreen} />
         </AuthTab.Navigator>
       )}
@@ -68,7 +72,7 @@ export default () => {
 };
 
 const styles = StyleSheet.create({
-   container: {
+  container: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
@@ -77,7 +81,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#52A123",
     height: "50%",
   },
-  name:{
+  name: {
     color: "#52A123",
   },
 });

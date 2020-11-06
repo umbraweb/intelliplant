@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from "react-native";
 const DataScreen = (props) => {
   return (
     <View style={styles.container}>
-      <Text> Data</Text>
+      <Text>Estatísticas</Text>
     </View>
   );
 };
