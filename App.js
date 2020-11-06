@@ -6,6 +6,14 @@ import SignInScreen from "./screens/SignInScreen";
 import SignUpScreen from "./screens/SignUpScreen";
 import SensoresScreen from "./screens/SensoresScreen";
 import DataScreen from "./screens/DataScreen";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
+//import React from 'react';
 import * as firebase from "firebase";
 
 var firebaseConfig = {
@@ -21,6 +29,7 @@ firebase.initializeApp(firebaseConfig);
 
 const AuthTab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
+//const Background = require('/imgs/logo.jpeg');
 
 const onAuthStateChange = (callback) => {
   return firebase.auth().onAuthStateChanged((user) => {
@@ -43,11 +52,26 @@ export default () => {
           <Drawer.Screen name="Estatísticas" component={DataScreen} />
         </Drawer.Navigator>
       ) : (
-        <AuthTab.Navigator>
-          <AuthTab.Screen name="SignIn" component={SignInScreen} />
+        <AuthTab.Navigator style = {styles.box}>
+          <AuthTab.Screen name="SignIn" style = {styles.name} component={SignInScreen} />
           <AuthTab.Screen name="SignUp" component={SignUpScreen} />
         </AuthTab.Navigator>
       )}
     </NavigationContainer>
   );
 };
+
+const styles = StyleSheet.create({
+   container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  box: {
+    backgroundColor: "#52A123",
+    height: "50%",
+  },
+  name:{
+    color: "#52A123",
+  },
+});

@@ -32,24 +32,24 @@ const SignUpScreen = (props) => {
       <View style={styles.errorMessage}>
         {error && email != "" && <Text style={styles.error}>{error}</Text>}
       </View>
-      <TextInput style={styles.inputBox} placeholder="Nome Completo" />
+      <TextInput style={styles.inputBox} placeholder=" Nome Completo" />
       <TextInput
         style={styles.inputBox}
-        placeholder="Email"
+        placeholder="  Email"
         onChangeText={emailHandler}
         value={email}
       />
       <TextInput
         secureTextEntry={true}
         style={styles.inputBox}
-        placeholder="Senha"
+        placeholder=" Senha"
         onChangeText={passwordHandler}
         value={password}
       />
       <TextInput
         secureTextEntry={true}
         style={styles.inputBox}
-        placeholder="Confirmar Senha"
+        placeholder=" Confirmar Senha"
       />
       <TouchableOpacity style={styles.button} onPress={handleRegister}>
         <Text> Fazer Cadastro </Text>
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "pink",
+    backgroundColor: "#73C6D8",
     borderRadius: 4,
     height: 30,
     width: "80%",
