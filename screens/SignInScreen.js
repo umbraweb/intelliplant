@@ -40,6 +40,7 @@ const SignInScreen = (props) => {
         value={email}
       />
       <TextInput
+        secureTextEntry={true}
         style={styles.inputBox}
         placeholder="Senha"
         onChangeText={passwordHandler}

@@ -30,9 +30,9 @@ const onAuthStateChange = (callback) => {
 export default () => {
   const [user, setUser] = React.useState({ loggedIn: false });
   useEffect(() => {
-    const cavalcanteGay = onAuthStateChange(setUser);
+    const machadoCouto = onAuthStateChange(setUser);
     return () => {
-      cavalcanteGay();
+      machadoCouto();
     };
   });
   return (

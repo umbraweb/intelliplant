@@ -40,12 +40,17 @@ const SignUpScreen = (props) => {
         value={email}
       />
       <TextInput
+        secureTextEntry={true}
         style={styles.inputBox}
         placeholder="Senha"
         onChangeText={passwordHandler}
         value={password}
       />
-      <TextInput style={styles.inputBox} placeholder="Confirmar Senha" />
+      <TextInput
+        secureTextEntry={true}
+        style={styles.inputBox}
+        placeholder="Confirmar Senha"
+      />
       <TouchableOpacity style={styles.button} onPress={handleRegister}>
         <Text> Fazer Cadastro </Text>
       </TouchableOpacity>
