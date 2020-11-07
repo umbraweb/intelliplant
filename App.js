@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -18,6 +19,9 @@ import {
 } from "react-native";
 //import React from 'react';
 import * as firebase from "firebase";
+<<<<<<< HEAD
+import cor from "./constants/colors";
+=======
 
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
@@ -32,6 +36,7 @@ const fetchFonts = () => {
   SofiaProLight: require('../assets/fonts/sofia-pro-light.otf'),
 });*/
 
+>>>>>>> 62e0e7fb734d37b423541b8f74f5103b5a2de30a
 var firebaseConfig = {
   apiKey: "AIzaSyA9sAULTDVdnvTDYWJHTxHzsecrvMYV-T4",
   authDomain: "plantaintel.firebaseapp.com",
@@ -43,6 +48,7 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
+const Tab = createMaterialBottomTabNavigator();
 const AuthTab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 //const Background = require('/imgs/logo.jpeg');
@@ -71,12 +77,15 @@ export default () => {
           <Drawer.Screen name="Estatísticas" component={DataScreen} />
         </Drawer.Navigator>
       ) : (
-        <AuthTab.Navigator style={styles.box}>
-          <AuthTab.Screen
-            name="SignIn"
-            style={styles.name}
-            component={SignInScreen}
-          />
+        <AuthTab.Navigator
+          tabBarOptions={{
+            tabStyle: {
+              height: 50,
+              backgroundColor: cor.azul,
+            },
+          }}
+        >
+          <AuthTab.Screen name="SignIn" component={SignInScreen} />
           <AuthTab.Screen name="SignUp" component={SignUpScreen} />
         </AuthTab.Navigator>
       )}
@@ -90,9 +99,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  box: {
-    backgroundColor: "#52A123",
-    height: "50%",
+  tab: {
+    backgroundColor: cor.azul,
+    marginBottom: 2,
   },
   name: {
     color: "#52A123",
