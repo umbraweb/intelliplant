@@ -61,7 +61,7 @@ const SignUpScreen = (props) => {
         placeholder=" Confirmar Senha"
       />
       <TouchableOpacity style={styles.button} onPress={handleRegister}>
-        <Text> Fazer Cadastro </Text>
+        <Text>  Fazer Cadastro </Text>
       </TouchableOpacity>
     </View>
   );
@@ -81,13 +81,13 @@ const styles = StyleSheet.create({
     width: "80%",
     height: 40,
     margin: 8,
+    fontFamily:'sofia-pro',
   },
   button: {
     marginVertical: 10,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#5DAE22",
-
     borderRadius: 4,
     height: 30,
     width: "80%",

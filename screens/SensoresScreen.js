@@ -20,7 +20,7 @@ const SensoresScreen = (props) => {
             <Feather name="menu" color="#fff" size={20} />
           </TouchableOpacity>
         }
-        centerComponent={{ text: "Sensores", style: { color: "#fff" } }}
+        centerComponent={{ text: "Sensores", style: { color: "#fff" , fontFamily: 'sofia-pro'} }}
       />
       <View style={styles.centeredView}>
         <View style={styles.box}>

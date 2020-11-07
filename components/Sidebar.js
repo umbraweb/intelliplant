@@ -1,3 +1,4 @@
+import cor from "../constants/colors";
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import * as firebase from "firebase";
@@ -19,7 +20,7 @@ export function Sidebar(props) {
     console.log(firebase.auth().currentUser);
   };
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: cor.azul }}>
       <DrawerContentScrollView {...props}>
         <View style={styles.drawerContent}>
           <View style={styles.userSection}>
@@ -40,7 +41,7 @@ export function Sidebar(props) {
           <Drawer.Section style={styles.midSection}>
             <DrawerItem
               icon={() => (
-                <Ionicons name="ios-radio" color={"black"} size={20} />
+                <Ionicons name="ios-radio" color={"white"} size={20} />
               )}
               label="Sensores"
               onPress={() => {
@@ -48,7 +49,7 @@ export function Sidebar(props) {
               }}
             />
             <DrawerItem
-              icon={() => <Octicons name="graph" color={"black"} size={20} />}
+              icon={() => <Octicons name="graph" color={"white"} size={20} />}
               label="Estatísticas"
               onPress={() => {
                 props.navigation.navigate("Estatísticas");
@@ -60,7 +61,7 @@ export function Sidebar(props) {
       <Drawer.Section style={styles.botSection}>
         <DrawerItem
           icon={() => (
-            <Ionicons name="ios-settings" color={"black"} size={20} />
+            <Ionicons name="ios-settings" color={"white"} size={20} />
           )}
           label="Configurações"
         />
@@ -68,21 +69,21 @@ export function Sidebar(props) {
           icon={() => (
             <MaterialCommunityIcons
               name="comment-question-outline"
-              color={"black"}
+              color={"white"}
               size={20}
             />
           )}
           label="FAQ"
         />
         <DrawerItem
-          icon={() => <FontAwesome name="send-o" color={"black"} size={18} />}
+          icon={() => <FontAwesome name="send-o" color={"white"} size={18} />}
           label="Fale Conosco"
         />
         <DrawerItem
           icon={() => (
             <MaterialCommunityIcons
               name="exit-to-app"
-              color={"black"}
+              color={"white"}
               size={17}
             />
           )}
@@ -95,7 +96,7 @@ export function Sidebar(props) {
 }
 
 const styles = StyleSheet.create({
-  drawerContent: { flex: 1, marginTop: 10 },
+  drawerContent: { flex: 1, marginTop:-5, backgroundColor: cor.verde },
   userSection: {
     paddingLeft: 20,
   },
@@ -103,17 +104,24 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginTop: 3,
     fontWeight: "bold",
+    color: "white",
+    fontFamily: 'sofia-pro',
   },
   caption: {
     fontSize: 14,
     lineHeight: 14,
+    color: "white",
+    fontFamily: 'sofia-pro',
   },
   midSection: {
-    borderTopColor: "#f4f4f4",
-    borderBottomWidth: 0,
+    borderTopColor: "white",
+    borderBottomWidth: 1,
+    borderBottomColor: "white",
+    color: "white",
   },
   botSection: {
-    borderTopColor: "#f4f4f4",
+    borderTopColor: "white",
     borderTopWidth: 1,
+    color: "white",
   },
 });

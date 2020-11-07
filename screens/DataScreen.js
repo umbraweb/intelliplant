@@ -19,7 +19,7 @@ const DataScreen = (props) => {
             <Feather name="menu" color="#fff" size={20} />
           </TouchableOpacity>
         }
-        centerComponent={{ text: "Estatísticas", style: { color: "#fff" } }}
+        centerComponent={{ text: "Estatísticas", style: { color: "#fff", fontFamily: 'sofia-pro' } }}
       />
       <View style={styles.centeredView}></View>
     </View>

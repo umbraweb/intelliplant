@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import * as Font from 'expo-font';
+import {AppLoading} from 'expo';
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
@@ -19,24 +21,7 @@ import {
 } from "react-native";
 //import React from 'react';
 import * as firebase from "firebase";
-<<<<<<< HEAD
 import cor from "./constants/colors";
-=======
-
-import * as Font from 'expo-font';
-import { AppLoading } from 'expo';
-
-const fetchFonts = () => {
-  return Font.loadAsync({
-  'Sofia': require('./assets/fonts/sofia-pro-light.otf'),
-  });
-};
-
-/*const [loaded] = useFonts({
-  SofiaProLight: require('../assets/fonts/sofia-pro-light.otf'),
-});*/
-
->>>>>>> 62e0e7fb734d37b423541b8f74f5103b5a2de30a
 var firebaseConfig = {
   apiKey: "AIzaSyA9sAULTDVdnvTDYWJHTxHzsecrvMYV-T4",
   authDomain: "plantaintel.firebaseapp.com",
@@ -52,6 +37,12 @@ const Tab = createMaterialBottomTabNavigator();
 const AuthTab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 //const Background = require('/imgs/logo.jpeg');
+
+const fetchFonts = () => {
+  return Font.loadAsync({
+  'sofia-pro': require('./assets/fonts/sofia-pro-light.otf')
+  });
+};
 
 const onAuthStateChange = (callback) => {
   return firebase.auth().onAuthStateChanged((user) => {
@@ -69,6 +60,17 @@ export default () => {
       machadoCouto();
     };
   });
+const [dataLoaded, setDataLoaded] = useState(false);
+
+  if(!dataLoaded){
+    return (
+     <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setDataLoaded(true)}
+      />
+    );
+  }
+
   return (
     <NavigationContainer>
       {user.loggedIn ? (

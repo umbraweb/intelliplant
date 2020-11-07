@@ -51,8 +51,8 @@ const SignInScreen = (props) => {
           value={email}
         />
         <TextInput
-          secureTextEntry={true}
           style={styles.inputBox}
+          secureTextEntry={true}
           placeholder=" Senha"
           onChangeText={passwordHandler}
           value={password}
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     width: "80%",
     height: 40,
     margin: 8,
-    //fontFamily: 'sofia pro light',
+    fontFamily: 'sofia-pro',
   },
   button: {
     marginVertical: 10,
@@ -90,9 +90,11 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     height: 30,
     width: "80%",
+    fontFamily: 'sofia-pro',
   },
   errorMessage: {
     fontSize: 20,
+    fontFamily: 'sofia-pro',
   },
   bgimage:{
     flex: 1,
