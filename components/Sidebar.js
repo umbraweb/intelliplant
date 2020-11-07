@@ -7,7 +7,12 @@ import {
   DrawerItem,
 } from "@react-navigation/drawer";
 import { Avatar, Drawer, Title, Caption } from "react-native-paper";
-import { MaterialCommunityIcons, Ionicons, Octicons } from "@expo/vector-icons";
+import {
+  MaterialCommunityIcons,
+  Ionicons,
+  Octicons,
+  FontAwesome,
+} from "@expo/vector-icons";
 export function Sidebar(props) {
   const handleSignOut = () => {
     firebase.auth().signOut();
@@ -34,8 +39,8 @@ export function Sidebar(props) {
           </View>
           <Drawer.Section style={styles.midSection}>
             <DrawerItem
-              icon={({ color, size }) => (
-                <Ionicons name="ios-radio" color={color} size={size} />
+              icon={() => (
+                <Ionicons name="ios-radio" color={"black"} size={20} />
               )}
               label="Sensores"
               onPress={() => {
@@ -43,9 +48,7 @@ export function Sidebar(props) {
               }}
             />
             <DrawerItem
-              icon={(color, size) => (
-                <Octicons name="graph" color={color} size={size} />
-              )}
+              icon={() => <Octicons name="graph" color={"black"} size={20} />}
               label="Estatísticas"
               onPress={() => {
                 props.navigation.navigate("Estatísticas");
@@ -56,11 +59,31 @@ export function Sidebar(props) {
       </DrawerContentScrollView>
       <Drawer.Section style={styles.botSection}>
         <DrawerItem
-          icon={(color, size) => (
+          icon={() => (
+            <Ionicons name="ios-settings" color={"black"} size={20} />
+          )}
+          label="Configurações"
+        />
+        <DrawerItem
+          icon={() => (
+            <MaterialCommunityIcons
+              name="comment-question-outline"
+              color={"black"}
+              size={20}
+            />
+          )}
+          label="FAQ"
+        />
+        <DrawerItem
+          icon={() => <FontAwesome name="send-o" color={"black"} size={18} />}
+          label="Fale Conosco"
+        />
+        <DrawerItem
+          icon={() => (
             <MaterialCommunityIcons
               name="exit-to-app"
-              color={color}
-              size={size}
+              color={"black"}
+              size={17}
             />
           )}
           label="Sign Out"
@@ -72,6 +95,7 @@ export function Sidebar(props) {
 }
 
 const styles = StyleSheet.create({
+  drawerContent: { flex: 1, marginTop: 10 },
   userSection: {
     paddingLeft: 20,
   },
@@ -84,8 +108,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 14,
   },
+  midSection: {
+    borderTopColor: "#f4f4f4",
+    borderBottomWidth: 0,
+  },
   botSection: {
-    marginBottom: 15,
     borderTopColor: "#f4f4f4",
     borderTopWidth: 1,
   },
