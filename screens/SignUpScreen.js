@@ -1,12 +1,20 @@
 import React, { useState } from "react";
+import * as Font from 'expo-font';
 import {
   View,
   Text,
   TextInput,
   StyleSheet,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import * as firebase from "firebase";
+
+const logo = {uri: "https://i.ibb.co/tsbwb1X/logo.jpg"};
+
+/*const [loaded] = useFonts({
+  SofiaProLight: require('../assets/fonts/sofia-pro-light.otf'),
+});*/
 
 const SignUpScreen = (props) => {
   const [email, setEmail] = useState("");
@@ -32,6 +40,7 @@ const SignUpScreen = (props) => {
       <View style={styles.errorMessage}>
         {error && email != "" && <Text style={styles.error}>{error}</Text>}
       </View>
+      <Image source = {logo} style = {styles.image}/>
       <TextInput style={styles.inputBox} placeholder=" Nome Completo" />
       <TextInput
         style={styles.inputBox}
@@ -63,11 +72,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#fdfeff",
   },
   inputBox: {
     borderWidth: 2,
     borderRadius: 10,
-    borderColor: "grey",
+    borderColor: "#73C6D8",
     width: "80%",
     height: 40,
     margin: 8,
@@ -76,7 +86,8 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#73C6D8",
+    backgroundColor: "#5DAE22",
+
     borderRadius: 4,
     height: 30,
     width: "80%",
@@ -84,5 +95,10 @@ const styles = StyleSheet.create({
   errorMessage: {
     fontSize: 20,
   },
+  image:{
+    width: '100%',
+    height: '20%',
+    resizeMode: 'contain',
+  }
 });
 export default SignUpScreen;

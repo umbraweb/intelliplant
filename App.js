@@ -19,6 +19,10 @@ import {
 //import React from 'react';
 import * as firebase from "firebase";
 
+/*const [loaded] = useFonts({
+  SofiaProLight: require('../assets/fonts/sofia-pro-light.otf'),
+});*/
+
 var firebaseConfig = {
   apiKey: "AIzaSyA9sAULTDVdnvTDYWJHTxHzsecrvMYV-T4",
   authDomain: "plantaintel.firebaseapp.com",
