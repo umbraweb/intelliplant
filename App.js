@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -18,7 +19,7 @@ import {
 } from "react-native";
 //import React from 'react';
 import * as firebase from "firebase";
-
+import cor from "./constants/colors";
 var firebaseConfig = {
   apiKey: "AIzaSyA9sAULTDVdnvTDYWJHTxHzsecrvMYV-T4",
   authDomain: "plantaintel.firebaseapp.com",
@@ -30,6 +31,7 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
+const Tab = createMaterialBottomTabNavigator();
 const AuthTab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 //const Background = require('/imgs/logo.jpeg');
@@ -41,6 +43,7 @@ const onAuthStateChange = (callback) => {
 };
 
 import { Sidebar } from "./components/Sidebar";
+import colors from "./constants/colors";
 
 export default () => {
   const [user, setUser] = React.useState({ loggedIn: false });
@@ -58,7 +61,14 @@ export default () => {
           <Drawer.Screen name="Estatísticas" component={DataScreen} />
         </Drawer.Navigator>
       ) : (
-        <AuthTab.Navigator style={styles.box}>
+        <AuthTab.Navigator
+          tabBarOptions={{
+            tabStyle: {
+              height: 50,
+              backgroundColor: cor.azul,
+            },
+          }}
+        >
           <AuthTab.Screen
             name="SignIn"
             style={styles.name}
@@ -77,9 +87,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  box: {
-    backgroundColor: "#52A123",
-    height: "50%",
+  tab: {
+    backgroundColor: cor.azul,
+    marginBottom: 2,
   },
   name: {
     color: "#52A123",
