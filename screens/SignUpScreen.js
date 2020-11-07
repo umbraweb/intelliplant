@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as Font from 'expo-font';
+import * as Font from "expo-font";
 import {
   View,
   Text,
@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import * as firebase from "firebase";
 
-const logo = {uri: "https://i.ibb.co/tsbwb1X/logo.jpg"};
+const logo = { uri: "https://i.ibb.co/tsbwb1X/logo.jpg" };
 
 /*const [loaded] = useFonts({
   SofiaProLight: require('../assets/fonts/sofia-pro-light.otf'),
@@ -40,28 +40,28 @@ const SignUpScreen = (props) => {
       <View style={styles.errorMessage}>
         {error && email != "" && <Text style={styles.error}>{error}</Text>}
       </View>
-      <Image source = {logo} style = {styles.image}/>
-      <TextInput style={styles.inputBox} placeholder=" Nome Completo" />
+      <Image source={logo} style={styles.image} />
+      <TextInput style={styles.inputBox} placeholder="Nome Completo" />
       <TextInput
         style={styles.inputBox}
-        placeholder="  Email"
+        placeholder="Email"
         onChangeText={emailHandler}
         value={email}
       />
       <TextInput
         secureTextEntry={true}
         style={styles.inputBox}
-        placeholder=" Senha"
+        placeholder="Senha"
         onChangeText={passwordHandler}
         value={password}
       />
       <TextInput
         secureTextEntry={true}
         style={styles.inputBox}
-        placeholder=" Confirmar Senha"
+        placeholder="Confirmar Senha"
       />
       <TouchableOpacity style={styles.button} onPress={handleRegister}>
-        <Text>  Fazer Cadastro </Text>
+        <Text> Fazer Cadastro </Text>
       </TouchableOpacity>
     </View>
   );
@@ -75,13 +75,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#fdfeff",
   },
   inputBox: {
+    padding: 5,
     borderWidth: 2,
     borderRadius: 10,
     borderColor: "#73C6D8",
     width: "80%",
     height: 40,
     margin: 8,
-    fontFamily:'sofia-pro',
+    fontFamily: "sofia-pro",
   },
   button: {
     marginVertical: 10,
@@ -95,10 +96,10 @@ const styles = StyleSheet.create({
   errorMessage: {
     fontSize: 20,
   },
-  image:{
-    width: '100%',
-    height: '20%',
-    resizeMode: 'contain',
-  }
+  image: {
+    width: "100%",
+    height: "20%",
+    resizeMode: "contain",
+  },
 });
 export default SignUpScreen;

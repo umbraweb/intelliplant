@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import * as Font from 'expo-font';
-import {AppLoading} from 'expo';
+import * as Font from "expo-font";
+import { AppLoading } from "expo";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
@@ -19,9 +19,10 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-//import React from 'react';
 import * as firebase from "firebase";
 import cor from "./constants/colors";
+import { FontAwesome } from "@expo/vector-icons";
+
 var firebaseConfig = {
   apiKey: "AIzaSyA9sAULTDVdnvTDYWJHTxHzsecrvMYV-T4",
   authDomain: "plantaintel.firebaseapp.com",
@@ -40,7 +41,7 @@ const Drawer = createDrawerNavigator();
 
 const fetchFonts = () => {
   return Font.loadAsync({
-  'sofia-pro': require('./assets/fonts/sofia-pro-light.otf')
+    "sofia-pro": require("./assets/fonts/sofia-pro-light.otf"),
   });
 };
 
@@ -60,11 +61,11 @@ export default () => {
       machadoCouto();
     };
   });
-const [dataLoaded, setDataLoaded] = useState(false);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
-  if(!dataLoaded){
+  if (!dataLoaded) {
     return (
-     <AppLoading
+      <AppLoading
         startAsync={fetchFonts}
         onFinish={() => setDataLoaded(true)}
       />
@@ -80,7 +81,21 @@ const [dataLoaded, setDataLoaded] = useState(false);
         </Drawer.Navigator>
       ) : (
         <AuthTab.Navigator
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ color, size }) => {
+              let iconName;
+
+              if (route.name == "SignIn") {
+                iconName = "sign-in";
+              } else if (route.name == "SignUp") {
+                iconName = "user-plus";
+              }
+              return <FontAwesome name={iconName} size={size} color={color} />;
+            },
+          })}
           tabBarOptions={{
+            activeTintColor: "white",
+            inactiveTintColor: "gray",
             tabStyle: {
               height: 50,
               backgroundColor: cor.azul,

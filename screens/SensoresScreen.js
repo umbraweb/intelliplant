@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity, StyleSheet } from "react-native";
+import { View, TouchableOpacity, StyleSheet, Text } from "react-native";
 import { Header } from "react-native-elements";
 
 import { Feather } from "@expo/vector-icons";
@@ -20,12 +20,18 @@ const SensoresScreen = (props) => {
             <Feather name="menu" color="#fff" size={20} />
           </TouchableOpacity>
         }
-        centerComponent={{ text: "Sensores", style: { color: "#fff" , fontFamily: 'sofia-pro'} }}
+        centerComponent={{
+          text: "Sensores",
+          style: { color: "#fff", fontFamily: "sofia-pro" },
+        }}
       />
       <View style={styles.centeredView}>
         <View style={styles.box}>
           <View style={styles.sensorIcon}>
             <Avatar.Image source={require("../assets/irrig_1.png")} size={65} />
+          </View>
+          <View style={{ marginLeft: 33 }}>
+            <Text style={{ fontFamily: "sofia-pro" }}>Sensor A</Text>
           </View>
         </View>
       </View>
@@ -55,6 +61,9 @@ const styles = StyleSheet.create({
   sensorIcon: {
     marginTop: 30,
     marginLeft: 30,
+  },
+  name: {
+    fontFamily: "sofia-pro",
   },
 });
 export default SensoresScreen;
