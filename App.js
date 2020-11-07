@@ -19,6 +19,15 @@ import {
 //import React from 'react';
 import * as firebase from "firebase";
 
+import * as Font from 'expo-font';
+import { AppLoading } from 'expo';
+
+const fetchFonts = () => {
+  return Font.loadAsync({
+  'Sofia': require('./assets/fonts/sofia-pro-light.otf'),
+  });
+};
+
 /*const [loaded] = useFonts({
   SofiaProLight: require('../assets/fonts/sofia-pro-light.otf'),
 });*/
