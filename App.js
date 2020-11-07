@@ -19,7 +19,15 @@ import {
 } from "react-native";
 //import React from 'react';
 import * as firebase from "firebase";
+<<<<<<< HEAD
 import cor from "./constants/colors";
+=======
+
+/*const [loaded] = useFonts({
+  SofiaProLight: require('../assets/fonts/sofia-pro-light.otf'),
+});*/
+
+>>>>>>> 62e0e7fb734d37b423541b8f74f5103b5a2de30a
 var firebaseConfig = {
   apiKey: "AIzaSyA9sAULTDVdnvTDYWJHTxHzsecrvMYV-T4",
   authDomain: "plantaintel.firebaseapp.com",

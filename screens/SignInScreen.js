@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import * as Font from 'expo-font';
+
 //import Background from './imgs/logo.jpeg';
 import {
   ImageBackground,
@@ -10,8 +12,11 @@ import {
   Image,
 } from "react-native";
 import * as firebase from "firebase";
-const image = {uri: "https://i.ibb.co/cXtLvfw/logo.jpg" };
 const logo = {uri: "https://i.ibb.co/tsbwb1X/logo.jpg"};
+
+/*const [loaded] = useFonts({
+  SofiaProLight: require('../assets/fonts/sofia-pro-light.otf'),
+});*/
 
 const SignInScreen = (props) => {
   const [email, setEmail] = useState("");
@@ -60,6 +65,7 @@ const SignInScreen = (props) => {
 };
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     alignItems: "center",
@@ -74,6 +80,7 @@ const styles = StyleSheet.create({
     width: "80%",
     height: 40,
     margin: 8,
+    //fontFamily: 'sofia pro light',
   },
   button: {
     marginVertical: 10,
