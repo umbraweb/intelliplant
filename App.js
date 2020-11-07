@@ -43,7 +43,6 @@ const onAuthStateChange = (callback) => {
 };
 
 import { Sidebar } from "./components/Sidebar";
-import colors from "./constants/colors";
 
 export default () => {
   const [user, setUser] = React.useState({ loggedIn: false });
@@ -69,11 +68,7 @@ export default () => {
             },
           }}
         >
-          <AuthTab.Screen
-            name="SignIn"
-            style={styles.name}
-            component={SignInScreen}
-          />
+          <AuthTab.Screen name="SignIn" component={SignInScreen} />
           <AuthTab.Screen name="SignUp" component={SignUpScreen} />
         </AuthTab.Navigator>
       )}
