@@ -1,24 +1,28 @@
 {
   "expo": {
-    "name": "try_2",
-    "slug": "try_2",
+    "name": "intelliplant_app",
+    "slug": "intelliplant_app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/logo.jpeg",
+      "image": "./assets/logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "adersin meu melhor amigo",
+    "githubUrl": "https://github.com/czartur/intelliplant"
   }
 }
