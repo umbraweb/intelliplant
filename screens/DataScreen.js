@@ -1,11 +1,57 @@
 import React from "react";
 import { View, StyleSheet, TouchableOpacity, Dimensions } from "react-native";
 import { Header } from "react-native-elements";
-import { LineChart } from "react-native-chart-kit";
+import { LineChart, Grid, YAxis } from "react-native-svg-charts";
 import { Feather } from "@expo/vector-icons";
 import cor from "../constants/colors";
 
 const DataScreen = (props) => {
+  const data1 = [
+    -40,
+    -30,
+    -20,
+    -10,
+    0,
+    10,
+    20,
+    30,
+    40,
+    50,
+    -53,
+    24,
+    50,
+    -20,
+    -80,
+  ];
+  const data2 = [
+    80,
+    70,
+    60,
+    50,
+    40,
+    30,
+    20,
+    10,
+    0,
+    -10,
+    -20,
+    -30,
+    -40,
+    -50,
+    -60,
+  ];
+  const data = [
+    {
+      data: data1,
+      svg: { stroke: cor.azul },
+    },
+    {
+      data: data2,
+      svg: { stroke: cor.verde },
+    },
+  ];
+  const verticalContent = { top: 10, bottom: 10 };
+  const axesSvg = { fontSize: 10, fill: "grey" };
   return (
     <View style={{ flex: 1 }}>
       <Header
@@ -24,46 +70,22 @@ const DataScreen = (props) => {
           style: { color: "#fff", fontFamily: "sofia-pro" },
         }}
       />
-      <View style={styles.centeredView}></View>
-      <LineChart
-        data={{
-          labels: ["January", "February", "March", "April", "May", "June"],
-          datasets: [
-            {
-              data: [
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-                Math.random() * 100,
-              ],
-            },
-          ],
-        }}
-        width={Dimensions.get("window").width} // from react-native
-        height={220}
-        yAxisLabel="$"
-        yAxisSuffix="k"
-        yAxisInterval={1} // optional, defaults to 1
-        chartConfig={{
-          backgroundColor: "#e26a00",
-          backgroundGradientFrom: "#fb8c00",
-          backgroundGradientTo: "#ffa726",
-          decimalPlaces: 2, // optional, defaults to 2dp
-          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-          style: {
-            borderRadius: 16,
-          },
-          propsForDots: {
-            r: "6",
-            strokeWidth: "2",
-            stroke: "#ffa726",
-          },
-        }}
-        style={{ marginVertical: 8, borderRadius: 16 }}
-      />
+      <View style={styles.centeredView}>
+        <View
+          style={{ height: 200, flexDirection: "row", backgroundColor: "#fff" }}
+        >
+          <YAxis data={data1} contentInset={verticalContent} svg={axesSvg} />
+          <LineChart
+            style={{ flex: 1, height: 200, width: "90%" }}
+            data={data}
+            //svg={{ stroke: "rgb(134, 65, 244)" }}
+            contentInset={{ top: 20, bottom: 20 }}
+          >
+            <Grid />
+          </LineChart>
+          <YAxis data={data2} contentInset={verticalContent} svg={axesSvg} />
+        </View>
+      </View>
     </View>
   );
 };
@@ -72,7 +94,6 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
     backgroundColor: cor.azul,
   },
   menu: {
