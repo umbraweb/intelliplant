@@ -82,6 +82,7 @@ const DataScreen = (props) => {
             contentInset={{ top: 20, bottom: 20 }}
           >
             <Grid />
+            
           </LineChart>
           <YAxis data={data2} contentInset={verticalContent} svg={axesSvg} />
         </View>

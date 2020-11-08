@@ -1,5 +1,5 @@
-import React from "react";
-import { View, TouchableOpacity, StyleSheet, Text, Image } from "react-native";
+import React, {useState} from "react";
+import { View, TouchableOpacity, StyleSheet, Text, Image, Switch } from "react-native";
 import { Header } from "react-native-elements";
 
 import { Feather } from "@expo/vector-icons";
@@ -7,6 +7,9 @@ import cor from "../constants/colors";
 import { Avatar } from "react-native-paper";
 
 const SensoresScreen = (props) => {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
   return (
     <View style={{ flex: 1 }}>
       <Header
@@ -28,25 +31,32 @@ const SensoresScreen = (props) => {
       <View style={styles.centeredView}>
         <View style={styles.box}>
           <View style={(styles.image, styles.dummy)}>
-            <Avatar.Image source={require("../assets/irrig_1.png")} size={65} />
-            <Text style={{ marginLeft: 7, fontFamily: "sofia-pro" }}>
+              <Avatar.Image source={require("../assets/irrig_1.png")} size={65}/>
+            <Text style={{ alignSelf: "center", marginTop: 50, fontFamily: "sofia-pro" }}>
               Sensor A
             </Text>
+            <Switch style = {styles.switch}
+              trackColor={{ false: "#767577", true: cor.verde }}
+              thumbColor={isEnabled ? cor.azul : "#f4f3f4"}
+              onValueChange={toggleSwitch}
+              value={isEnabled}
+            />
           </View>
           <View style={(styles.image, styles.dummy)}>
-            <Text style={{ textAlign: "center" }}>Umidade</Text>
+            <Text style={styles.description}>Umidade</Text>
             <Image
               source={require("../assets/water_1.png")}
-              style={{
-                height: "20%",
-                width: "80%",
-                resizeMode: "contain",
-              }}
+              style={styles.icons}
             />
-            <Text style={{ textAlign: "center" }}>55% </Text>
+            <Text style={styles.percentage}>55% </Text>
           </View>
           <View style={styles.dummy}>
-            <Text>terceira parte, justiça e disciplina</Text>
+            <Text style={styles.description}>Bateria</Text>
+            <Image
+              source={require("../assets/battery.png")}
+              style={styles.icons}
+            />
+            <Text style={styles.percentage}>80% </Text>
           </View>
         </View>
       </View>
@@ -55,6 +65,15 @@ const SensoresScreen = (props) => {
 };
 
 const styles = StyleSheet.create({
+  avatar:{
+    flex: 1,
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+  },
+  switch:{
+    marginTop: 10,
+    alignSelf: "center"
+  },
   dummy: {
     borderWidth: 1,
     borderColor: "black",
@@ -83,6 +102,23 @@ const styles = StyleSheet.create({
   image: {
     marginTop: 30,
     marginLeft: 30,
+  },
+  description:{
+    fontFamily: "sofia-pro",
+    marginTop: 30,
+    textAlign: "center",
+  },
+  icons:{
+    height: "25%",
+    width: "100%",
+    resizeMode: "contain",
+    alignSelf: "center",
+    marginTop: 10,
+  },
+  percentage:{
+    fontFamily: "sofia-pro",
+    marginTop: 10,
+    textAlign: "center",
   },
   moisture: {},
   name: {
