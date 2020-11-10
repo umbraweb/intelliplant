@@ -76,8 +76,8 @@ export default () => {
     <NavigationContainer>
       {user.loggedIn ? (
         <Drawer.Navigator drawerContent={(props) => <Sidebar {...props} />}>
-          <Drawer.Screen name="Estatísticas" component={DataScreen} />
           <Drawer.Screen name="Sensores" component={SensoresScreen} />
+          <Drawer.Screen name="Estatísticas" component={DataScreen} />
         </Drawer.Navigator>
       ) : (
         <AuthTab.Navigator
