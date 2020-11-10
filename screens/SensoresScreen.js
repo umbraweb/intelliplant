@@ -32,7 +32,13 @@ const SensoresScreen = (props) => {
   const addSensorHandler = (sensorTitle) => {
     setUserSensors((currentSensors) => [
       ...currentSensors,
-      { key: Math.random().toString(), value: sensorTitle },
+      {
+        key: Math.random().toString(),
+        value: sensorTitle,
+        switch: false,
+        umidade: Math.floor(Math.random() * 100),
+        bateria: Math.floor(Math.random() * 100),
+      },
     ]);
     setModalOpen(false);
     setEnteredSensor("");
@@ -105,8 +111,10 @@ const SensoresScreen = (props) => {
                   style={styles.switch}
                   trackColor={{ false: "#767577", true: cor.verde }}
                   thumbColor={isEnabled ? cor.azul : "#f4f3f4"}
-                  onValueChange={toggleSwitch}
-                  value={isEnabled}
+                  onValueChange={() => {
+                    itemData.item.switch = !itemData.item.switch;
+                  }}
+                  value={itemData.item.switch}
                 />
               </View>
               <View style={(styles.image, styles.dummy)}>
@@ -115,7 +123,7 @@ const SensoresScreen = (props) => {
                   source={require("../assets/water_1.png")}
                   style={styles.icons}
                 />
-                <Text style={styles.percentage}>55% </Text>
+                <Text style={styles.percentage}>{itemData.item.umidade}% </Text>
               </View>
               <View style={styles.dummy}>
                 <Text style={styles.description}>Bateria</Text>
@@ -123,7 +131,7 @@ const SensoresScreen = (props) => {
                   source={require("../assets/battery.png")}
                   style={styles.icons}
                 />
-                <Text style={styles.percentage}>80% </Text>
+                <Text style={styles.percentage}>{itemData.item.bateria}% </Text>
               </View>
             </View>
           )}
