@@ -7,38 +7,56 @@ import cor from "../constants/colors";
 
 const DataScreen = (props) => {
   const data1 = [
-    -40,
-    -30,
-    -20,
-    -10,
     0,
     10,
     20,
     30,
     40,
     50,
-    -53,
-    24,
-    50,
-    -20,
-    -80,
+    60,
+    70,
+    80,
+    90,
+    100,
   ];
   const data2 = [
-    80,
-    70,
-    60,
-    50,
     40,
-    30,
-    20,
-    10,
-    0,
-    -10,
-    -20,
-    -30,
-    -40,
-    -50,
-    -60,
+    40,
+    40,
+    40,
+    40,
+    40,
+    40,
+    40,
+    40,
+    40,
+    40,
+  ];
+  const data3 = [
+    60,
+    60,
+    60,
+    60,
+    60,
+    60,
+    60,
+    60,
+    60,
+    60,
+    60,
+  ];
+  const data4 = [
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
+    80,
   ];
   const data = [
     {
@@ -47,7 +65,15 @@ const DataScreen = (props) => {
     },
     {
       data: data2,
-      svg: { stroke: cor.verde },
+      svg: { stroke: "red" },
+    },
+    {
+      data: data3,
+      svg: { stroke: "green" },
+    },
+    {
+      data: data4,
+      svg: { stroke: "red" },
     },
   ];
   const verticalContent = { top: 10, bottom: 10 };
@@ -71,12 +97,15 @@ const DataScreen = (props) => {
         }}
       />
       <View style={styles.centeredView}>
+        <View style={styles.topmenu}>
+
+        </View>
         <View
-          style={{ height: 200, flexDirection: "row", backgroundColor: "#fff" }}
+          style={styles.chart}
         >
-          <YAxis data={data1} contentInset={verticalContent} svg={axesSvg} />
+          <YAxis data={data1} contentInset={verticalContent}  numberOfTicks={10} svg={axesSvg} />
           <LineChart
-            style={{ flex: 1, height: 200, width: "90%" }}
+            style={{ flex: 1, height: "100%", width: "90%" }}
             data={data}
             //svg={{ stroke: "rgb(134, 65, 244)" }}
             contentInset={{ top: 20, bottom: 20 }}
@@ -84,7 +113,10 @@ const DataScreen = (props) => {
             <Grid />
             
           </LineChart>
-          <YAxis data={data2} contentInset={verticalContent} svg={axesSvg} />
+        </View>
+        
+        <View style={styles.info}>
+
         </View>
       </View>
     </View>
@@ -94,12 +126,37 @@ const DataScreen = (props) => {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "space-between",
     backgroundColor: cor.azul,
-  },
+  },  
   menu: {
     marginLeft: 10,
     width: "100%",
+  },
+  chart: {
+    height: "45%",
+    width: "95%",
+    marginLeft: 10,
+    flexDirection: "row",
+    backgroundColor: "#fff"
+  },
+  topmenu:{
+    alignSelf: "center",
+    backgroundColor: cor.branco,
+    borderColor: "black",
+    borderWidth: 1,
+    width: "80%",
+    height: "7%",
+    marginTop: 10,
+  },
+  info:{
+    marginBottom: 20,
+    alignSelf: "center",
+    backgroundColor: cor.branco,
+    borderColor: "black",
+    borderWidth: 1,
+    width: "90%",
+    height: "35%",
   },
 });
 export default DataScreen;
