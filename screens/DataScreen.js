@@ -125,9 +125,7 @@ const DataScreen = (props) => {
         <View style={styles.topmenu}>
 
         </View>
-        <View
-          style={styles.chart}
-        >
+        <View style={styles.chart}>
           <YAxis data={data0} contentInset={verticalContent} numberOfTicks={10} svg={axesSvg} />
           <LineChart
             style={styles.graph}
@@ -135,13 +133,10 @@ const DataScreen = (props) => {
             //svg={{ stroke: "rgb(134, 65, 244)" }}
             contentInset={{ top: 20, bottom: 20, right: -30}}
           >
-            <Grid />
-            
-          </LineChart>
-          <XAxis data={data0} contentInset={verticalContent} svg={axesSvg} />
-          
+          <Grid />  
+          </LineChart>  
         </View>
-        
+        <XAxis data={data0} contentInset={{right:100}} numberOfTicks={10} svg={axesSvg} />
         <View style={styles.info}>
 
         </View>
