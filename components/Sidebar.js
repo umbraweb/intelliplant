@@ -33,8 +33,10 @@ export function Sidebar(props) {
                 size={60}
               />
               <View style={{ marginLeft: 15, flexDirection: "column" }}>
-                <Title style={styles.title}>Aderson fdp</Title>
-                <Caption style={styles.caption}>@aderson_fdp</Caption>
+                <Title style={styles.title}>Sergio</Title>
+                <Caption style={styles.caption}>
+                  @sergio.macario@ime.com
+                </Caption>
               </View>
             </View>
           </View>
@@ -96,7 +98,7 @@ export function Sidebar(props) {
 }
 
 const styles = StyleSheet.create({
-  drawerContent: { flex: 1, marginTop:-5, backgroundColor: cor.verde },
+  drawerContent: { flex: 1, marginTop: -5, backgroundColor: cor.verde },
   userSection: {
     paddingLeft: 20,
   },
@@ -105,13 +107,13 @@ const styles = StyleSheet.create({
     marginTop: 3,
     fontWeight: "bold",
     color: "white",
-    fontFamily: 'sofia-pro',
+    fontFamily: "sofia-pro",
   },
   caption: {
     fontSize: 14,
     lineHeight: 14,
     color: "white",
-    fontFamily: 'sofia-pro',
+    fontFamily: "sofia-pro",
   },
   midSection: {
     borderTopColor: "white",
